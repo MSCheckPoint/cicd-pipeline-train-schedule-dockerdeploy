@@ -11,6 +11,14 @@ pipeline {
        SG_SECRET_KEY = credentials("SG_SECRET_KEY")
     }
      stages {
+
+       stage('Cleaning Space') {
+            steps {    
+                echo 'removing builds'
+                sh 'rm -rf /var/lib/jenkins/workspace/train-schedule_master/cicd-pipeline-train-schedule-dockerdeploy.tar'
+                sh 'rm -rf /var/lib/jenkins/workspace/train-schedule_master/train-schedule_master@*'
+            }
+        }
          
         stage('Build') {
             steps {    
@@ -21,7 +29,7 @@ pipeline {
              stage('SourceGuard Source Code Scan') {   
         steps {           
            script {      
-               try {   
+               try {
                   sh 'pwd'
                   //sh 'chmod +x shiftleft'
                   sh 'shiftleft –-version'
