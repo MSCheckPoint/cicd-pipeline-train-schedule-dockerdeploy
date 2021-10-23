@@ -3,7 +3,7 @@ pipeline {
     environment {   
         //Initialize Sourceguard SHIFTLEFT 
 
-        //modified
+        //modified 2
 
        SHIFTLEFT_REGION = 'eu1'
         
