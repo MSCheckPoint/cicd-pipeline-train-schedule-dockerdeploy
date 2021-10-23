@@ -17,6 +17,7 @@ pipeline {
                 echo 'removing builds'
                 sh 'rm -rf /var/lib/jenkins/workspace/train-schedule_master/cicd-pipeline-train-schedule-dockerdeploy.tar'
                 sh 'rm -rf /var/lib/jenkins/workspace/train-schedule_master/train-schedule_master@*'
+                sh 'ls'
             }
         }
          
