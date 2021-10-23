@@ -3,8 +3,6 @@ pipeline {
     environment {   
         //Initialize Sourceguard SHIFTLEFT 
 
-        //modified 2
-
        SHIFTLEFT_REGION = 'eu1'
         
        SG_CLIENT_ID = credentials("SG_CLIENT_ID")
