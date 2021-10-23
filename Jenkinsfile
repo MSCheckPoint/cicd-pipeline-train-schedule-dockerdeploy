@@ -26,7 +26,7 @@ pipeline {
                 sh './gradlew build --no-daemon'
             }
         }
-             stage('SourceGuard Source Code Scan') {   
+             stage('SHIFTLEFT Source Code Scan') {   
         steps {           
            script {      
                try {
@@ -53,7 +53,7 @@ pipeline {
                 }
             }
         }
-        stage('SourceGuard Container Image Scan') {   
+        stage('SHIFTLEFT Container Image Scan') {   
         steps {               
            script {      
                try {
