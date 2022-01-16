@@ -1,8 +1,7 @@
 pipeline {
     agent any
     environment {   
-        //Initialize Sourceguard SHIFTLEFT 
-
+        */Initialize Sourceguard SHIFTLEFT with CSPM Demo Portal*/ 
        SHIFTLEFT_REGION = 'eu1'
         
        SG_CLIENT_ID = credentials("SG_CLIENT_ID")
@@ -25,12 +24,12 @@ pipeline {
                 sh './gradlew build --no-daemon'
             }
         }
-             stage('SHIFTLEFT Source Code Scan') {   
+             stage('SHIFTLEFT Source Code Scan') {                      */SAST scanning code for Vulnerabilities, Sensitive Content, Malicious IPs, Malicious URLS*/
         steps {           
            script {      
                try {
                   sh 'pwd'
-                  sh 'shiftleft –-version'
+               //   sh 'shiftleft –-version'
                   sh 'shiftleft code-scan -h .'    
               } catch (Exception e) {
                   echo "Stage failed, but we continue!"  
@@ -51,7 +50,8 @@ pipeline {
                 }
             }
         }
-        stage('SHIFTLEFT Container Image Scan') {   
+         
+        stage('SHIFTLEFT Container Image Scan') {                            */Decomposing Layers of Container Image and scan Packages for Vulnerabilities*/
         steps {               
            script {      
                try {
