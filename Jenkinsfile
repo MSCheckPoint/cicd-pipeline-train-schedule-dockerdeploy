@@ -24,7 +24,7 @@ pipeline {
                 sh './gradlew build --no-daemon'
             }
         }
-             stage('SHIFTLEFT Source Code Scan') {                      */SAST scanning code for Vulnerabilities, Sensitive Content, Malicious IPs, Malicious URLS*/
+             stage('SHIFTLEFT Source Code Scan') {                      /*SAST scanning code for Vulnerabilities, Sensitive Content, Malicious IPs, Malicious URLS*/
         steps {           
            script {      
                try {
@@ -51,7 +51,7 @@ pipeline {
             }
         }
          
-        stage('SHIFTLEFT Container Image Scan') {                            */Decomposing Layers of Container Image and scan Packages for Vulnerabilities*/
+        stage('SHIFTLEFT Container Image Scan') {                            /*Decomposing Layers of Container Image and scan Packages for Vulnerabilities*/
         steps {               
            script {      
                try {
