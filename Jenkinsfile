@@ -30,8 +30,10 @@ pipeline {
            script {      
                try {
                   sh 'pwd'
-                  sh 'shiftleft –-version'
-                  sh 'shiftleft code-scan -h .'      
+                  sh 'sudo $WORKSPACE/shiftleft –-version'
+              //    sh 'shiftleft –-version'
+                  sh 'sudo $WORKSPACE/shiftleft code-scan -h .'
+                //  sh 'shiftleft code-scan -h .'      
               } catch (Exception e) {
                   echo "Stage failed, but we continue!"  
                    }
