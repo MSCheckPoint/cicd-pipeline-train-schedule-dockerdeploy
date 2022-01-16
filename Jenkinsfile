@@ -57,7 +57,7 @@ pipeline {
                try {
                   sh 'docker save martyre37/cicd-pipeline-train-schedule-dockerdeploy > cicd-pipeline-train-schedule-dockerdeploy.tar'
                   sh 'export -p'
-                  sh 'shiftleft image-scan -h /var/lib/jenkins/workspace/train-schedule_master/cicd-pipeline-train-schedule-dockerdeploy.tar'
+                  sh 'shiftleft image-scan -i /var/lib/jenkins/workspace/train-schedule_master/cicd-pipeline-train-schedule-dockerdeploy.tar'
               } catch (Exception e) {
                  // Optional Cleaning Workspace after failed build   
                 //   sh rm -rf /var/lib/jenkins/workspace/train-schedule_master/train-schedule_master*
