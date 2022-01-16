@@ -31,7 +31,6 @@ pipeline {
            script {      
                try {
                   sh 'pwd'
-                  sh 'sudo chmod u+x shiftleft'
                   sh 'shiftleft –-version'
                   sh 'shiftleft code-scan -h .'      
               } catch (Exception e) {
