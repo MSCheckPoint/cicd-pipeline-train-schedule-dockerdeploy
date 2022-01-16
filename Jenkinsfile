@@ -30,7 +30,7 @@ pipeline {
                try {
                   sh 'pwd'
                //   sh 'shiftleft –-version'
-                  sh 'shiftleft code-scan -h .'    
+                  sh 'shiftleft code-scan -s .'    
               } catch (Exception e) {
                   echo "Stage failed, but we continue!"  
                    }
