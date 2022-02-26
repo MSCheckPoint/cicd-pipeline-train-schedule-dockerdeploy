@@ -30,9 +30,9 @@ pipeline {
                try {
                   sh 'pwd'
                //   sh 'shiftleft –-version'
-              //    sh 'shiftleft code-scan -s .'   
+               //     sh 'shiftleft code-scan -s .'   
                    
-                   sh 'shiftleft code-scan -r -2002 -e 8a93d20b-5233-4b18-8361-4c5e533281e9  -s .'
+                  sh 'shiftleft code-scan -j -r -2002 -e 8a93d20b-5233-4b18-8361-4c5e533281e9  -s .'
 
               } catch (Exception e) {
                   echo "Stage failed, but we continue!"  
@@ -60,7 +60,9 @@ pipeline {
                try {
                   sh 'docker save martyre37/cicd-pipeline-train-schedule-dockerdeploy > cicd-pipeline-train-schedule-dockerdeploy.tar'
                   sh 'export -p'
-                  sh 'shiftleft image-scan -i /var/lib/jenkins/workspace/train-schedule_master/cicd-pipeline-train-schedule-dockerdeploy.tar'
+                 // sh 'shiftleft image-scan -i /var/lib/jenkins/workspace/train-schedule_master/cicd-pipeline-train-schedule-dockerdeploy.tar'
+                   sh 'shiftleft image-scan -r -2002 -e 8a93d20b-5233-4b18-8361-4c5e533281e9 -i /var/lib/jenkins/workspace/train-schedule_master/cicd-pipeline-train-schedule-dockerdeploy.tar'
+                   
               } catch (Exception e) {
                  // Optional Cleaning Workspace after failed build   
                 //   sh rm -rf /var/lib/jenkins/workspace/train-schedule_master/train-schedule_master*
