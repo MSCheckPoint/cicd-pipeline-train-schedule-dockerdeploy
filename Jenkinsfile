@@ -29,10 +29,7 @@ pipeline {
            script {      
                try {
                   sh 'pwd'
-               //   sh 'shiftleft –-version'
-               //     sh 'shiftleft code-scan -s .'   
-                   
-                  sh 'shiftleft code-scan -j -r -2002 -e 8a93d20b-5233-4b18-8361-4c5e533281e9  -s .'
+                   sh 'shiftleft code-scan -s .'   
 
               } catch (Exception e) {
                   echo "Stage failed, but we continue!"  
