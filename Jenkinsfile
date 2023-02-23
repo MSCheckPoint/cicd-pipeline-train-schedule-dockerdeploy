@@ -19,8 +19,8 @@ pipeline {
                 sh 'cd /var/lib/jenkins/workspace/train-schedule_master/ && ls'
             }
         }
- //spectral installation & scan                 
-          
+       
+         //spectral installation & scan                 
             stage('install Spectral') {
               steps {
                 sh "curl -L 'https://app.spectralops.io/latest/x/sh?dsn=$SPECTRAL_DSN' | sh"
@@ -70,7 +70,7 @@ pipeline {
                     }
                 }
             }
-         
+        }
         stage('SHIFTLEFT Container Image Scan') {                            /*Decomposing Layers of Container Image and scan Packages for Vulnerabilities*/
         steps {               
            script {      
@@ -134,7 +134,7 @@ pipeline {
             }
           }
     }
-              }
+   
          post {
             // Clean after build
             always {
@@ -146,5 +146,5 @@ pipeline {
                                    [pattern: '.propsfile', type: 'EXCLUDE']])
             }
         }
-}
+    }
 }
