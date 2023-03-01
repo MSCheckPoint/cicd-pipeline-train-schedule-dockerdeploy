@@ -19,7 +19,7 @@ pipeline {
                 sh 'cd /var/lib/jenkins/workspace/train-schedule_master/ && ls'
             }
         }
-       
+              
          //spectral installation & scan                 
             stage('install Spectral') {
               steps {
@@ -31,14 +31,18 @@ pipeline {
                 sh "$HOME/.spectral/spectral scan --ok  --include-tags base,audit"
               }
             }
- 
-        stage('Build') {
-            steps {    
-                echo 'Running build automation'
-                sh './gradlew build --no-daemon'
+            stage('CI/CD Hardening){
+               steps {
+                  sh "$HOME/.spectral/spectral discover github --kind repo ."
+                      }
+                  }
+            stage('Build') {
+                steps {    
+                    echo 'Running build automation'
+                    sh './gradlew build --no-daemon'
+                }
             }
-        }
-             stage('SHIFTLEFT Source Code Scan') {                      /*SAST scanning code for Vulnerabilities, Sensitive Content, Malicious IPs, Malicious URLS*/
+             stage('SHIFTLEFT Source Code Scan') {            /*SAST scanning code for Vulnerabilities, Sensitive Content, Malicious IPs, Malicious URLS*/
         steps {           
            script {      
                try {
