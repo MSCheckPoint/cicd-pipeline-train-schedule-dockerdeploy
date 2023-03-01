@@ -33,8 +33,9 @@ pipeline {
             }
             stage('CI/CD Hardening'){
                steps {
-                  sh "$HOME/.spectral/spectral discover github --kind repo ."
-                      }
+                //sh "$HOME/.spectral/spectral discover github --kind repo ."
+                   sh "$HOME/.spectral/spectral discover github -k user MSCheckPoint"
+               }
                   }
             stage('Build') {
                 steps {    
