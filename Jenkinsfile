@@ -8,6 +8,8 @@ pipeline {
        CHKP_CLOUDGUARD_SECRET = credentials("CHKP_CLOUDGUARD_SECRET")
         
        SPECTRAL_DSN = credentials('spectral-dsn')
+       gittoken1forspectral = credentials('gittoken1forspectral')
+           
     }
      stages {
 
@@ -34,7 +36,7 @@ pipeline {
             stage('CI/CD Hardening'){
                steps {
                 //sh "$HOME/.spectral/spectral discover github --kind repo ."
-                   sh "$HOME/.spectral/spectral discover github -k user MSCheckPoint"
+                   sh "$HOME/.spectral/spectral discover github -k user MSCheckPoint --token gittoken1forspectral"
                }
                   }
             stage('Build') {
