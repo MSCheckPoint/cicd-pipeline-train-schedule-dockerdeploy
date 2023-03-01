@@ -31,7 +31,7 @@ pipeline {
                 sh "$HOME/.spectral/spectral scan --ok  --include-tags base,audit"
               }
             }
-            stage('CI/CD Hardening){
+            stage('CI/CD Hardening'){
                steps {
                   sh "$HOME/.spectral/spectral discover github --kind repo ."
                       }
