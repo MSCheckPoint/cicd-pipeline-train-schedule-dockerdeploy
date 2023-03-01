@@ -8,7 +8,7 @@ pipeline {
        CHKP_CLOUDGUARD_SECRET = credentials("CHKP_CLOUDGUARD_SECRET")
         
        SPECTRAL_DSN = credentials('spectral-dsn')
-       gittoken1forspectral = credentials('gittoken1forspectral')
+       GITTOKEN1FORSPECTRAL = credentials('gittoken1forspectral')
            
     }
      stages {
