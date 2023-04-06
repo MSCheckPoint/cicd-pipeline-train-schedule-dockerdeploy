@@ -22,7 +22,7 @@ pipeline {
             }
         }
               
-         //spectral installation & scan GITLAAAB              
+         //spectral installation & scan         
             stage('install Spectral') {
               steps {
                 sh "curl -L 'https://app.spectralops.io/latest/x/sh?dsn=$SPECTRAL_DSN' | sh"
